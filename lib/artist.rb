@@ -21,13 +21,17 @@ class Artist
    end 
   end 
  
- 
+ def self.find_or_create_by_name(name)
+        if self.all == []
+            name = Artist.new(name)
+        else 
+            self.all.find { |x| x.name == name }
+        end 
+    end 
  
    def print_songs
    self.songs.each {|song| puts song.name}
    end 
- 
- 
  
  end
  
